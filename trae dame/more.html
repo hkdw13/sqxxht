@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更多社区动态 - 社区信息互通</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="font-sans text-gray-800 bg-white">
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">返回首页</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="community" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800 hidden md:block">社区互通</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-24 px-6 bg-gray-50 pt-32">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
+                    更多动态
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    社区资讯全览
+                </h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    浏览更多社区动态，参与评论和点赞，共建温暖社区
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- 消息贴1：社区义工招募 -->
+                <div class="news-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">志愿招募</span>
+                                <span class="text-sm text-gray-400">3小时前</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">社区图书馆义工招募</h3>
+                            <p class="text-gray-600 mb-4">社区图书馆现招募周末义工，主要负责图书整理和读者引导工作。每周六日上午9:00-12:00，提供午餐和志愿者证明...</p>
+                            
+                            <div class="flex items-center gap-4 text-sm">
+                                <button class="comment-toggle flex items-center gap-1 text-gray-500 hover:text-green-500 transition-colors" data-target="comments-1">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>3 条评论</span>
+                                </button>
+                                <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-green-500 transition-colors" data-likes="18" data-liked="false" data-theme="green">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                                    <span class="like-count">18</span>
+                                    <span>点赞</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section mt-4 hidden" id="comments-1">
+                                <div class="border-t border-gray-200 pt-4 space-y-4">
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-blue-600 text-xs font-bold">郑</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">郑老师</span>
+                                                <span class="text-xs text-gray-400">2小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">我退休了有时间，愿意参加！请问需要提前培训吗？</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-purple-600 text-xs font-bold">何</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">何同学</span>
+                                                <span class="text-xs text-gray-400">1小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">大学生可以报名吗？想利用周末做点有意义的事</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-orange-600 text-xs font-bold">许</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">许阿姨</span>
+                                                <span class="text-xs text-gray-400">30分钟前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">图书馆环境好，做义工既能帮助别人又能充实自己，支持！</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-input flex gap-3 pt-2">
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="user" class="w-4 h-4 text-gray-500"></i>
+                                        </div>
+                                        <div class="flex-1 flex gap-2">
+                                            <input type="text" placeholder="写下你的评论..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-green-400">
+                                            <button class="px-4 py-2 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600 transition-colors">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息贴2：社区健身器材更新 -->
+                <div class="news-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="dumbbell" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">设施更新</span>
+                                <span class="text-sm text-gray-400">6小时前</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">小区健身器材全面升级</h3>
+                            <p class="text-gray-600 mb-4">物业已完成健身区域的器材更新，新增了跑步机、椭圆机和力量训练设备，欢迎居民前往使用，使用时请注意安全...</p>
+                            
+                            <div class="flex items-center gap-4 text-sm">
+                                <button class="comment-toggle flex items-center gap-1 text-gray-500 hover:text-blue-500 transition-colors" data-target="comments-2">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>4 条评论</span>
+                                </button>
+                                <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-blue-500 transition-colors" data-likes="32" data-liked="false" data-theme="blue">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                                    <span class="like-count">32</span>
+                                    <span>点赞</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section mt-4 hidden" id="comments-2">
+                                <div class="border-t border-gray-200 pt-4 space-y-4">
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-green-600 text-xs font-bold">梁</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">梁先生</span>
+                                                <span class="text-xs text-gray-400">5小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">太棒了！新增的跑步机正好解决了不能户外跑步的问题</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-pink-600 text-xs font-bold">唐</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">唐女士</span>
+                                                <span class="text-xs text-gray-400">4小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">请问开放时间是几点到几点？晚上可以用吗？</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-yellow-600 text-xs font-bold">郭</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">郭大爷</span>
+                                                <span class="text-xs text-gray-400">3小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">力量训练设备很好，但是建议增加一些适合老年人的器材</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-teal-600 text-xs font-bold">宋</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">宋小姐</span>
+                                                <span class="text-xs text-gray-400">2小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">周末去体验了一下，器材质量不错，就是人比较多建议错峰使用</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-input flex gap-3 pt-2">
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="user" class="w-4 h-4 text-gray-500"></i>
+                                        </div>
+                                        <div class="flex-1 flex gap-2">
+                                            <input type="text" placeholder="写下你的评论..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400">
+                                            <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息贴3：社区跳蚤市场 -->
+                <div class="news-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="store" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">活动预告</span>
+                                <span class="text-sm text-gray-400">1天前</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">周末社区跳蚤市场开市啦</h3>
+                            <p class="text-gray-600 mb-4">本周日下午2:00-5:00在社区广场举办跳蚤市场，居民可报名摆摊出售闲置物品。报名费5元，所得款项全部捐赠社区公益基金...</p>
+                            
+                            <div class="flex items-center gap-4 text-sm">
+                                <button class="comment-toggle flex items-center gap-1 text-gray-500 hover:text-orange-500 transition-colors" data-target="comments-3">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>4 条评论</span>
+                                </button>
+                                <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-orange-500 transition-colors" data-likes="28" data-liked="false" data-theme="orange">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                                    <span class="like-count">28</span>
+                                    <span>点赞</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section mt-4 hidden" id="comments-3">
+                                <div class="border-t border-gray-200 pt-4 space-y-4">
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-green-600 text-xs font-bold">田</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">田阿姨</span>
+                                                <span class="text-xs text-gray-400">20小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">家里好多闲置物品，正好可以清理一下，还能做公益，一举两得！</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-blue-600 text-xs font-bold">董</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">董先生</span>
+                                                <span class="text-xs text-gray-400">18小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">请问需要自带摊位布吗？还是物业会提供桌椅？</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-purple-600 text-xs font-bold">蒋</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">蒋同学</span>
+                                                <span class="text-xs text-gray-400">15小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">我想卖一些旧书和玩具，小朋友可以来淘淘看哦</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-red-600 text-xs font-bold">潘</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">潘奶奶</span>
+                                                <span class="text-xs text-gray-400">10小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">好活动！我会做一些手工饼干去义卖，欢迎大家来捧场</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-input flex gap-3 pt-2">
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="user" class="w-4 h-4 text-gray-500"></i>
+                                        </div>
+                                        <div class="flex-1 flex gap-2">
+                                            <input type="text" placeholder="写下你的评论..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-orange-400">
+                                            <button class="px-4 py-2 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600 transition-colors">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息贴4：社区邻里节 -->
+                <div class="news-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="party-popper" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">社区活动</span>
+                                <span class="text-sm text-gray-400">2天前</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">第三届社区邻里节即将开幕</h3>
+                            <p class="text-gray-600 mb-4">一年一度的社区邻里节将于下周末举办，届时将有美食分享、才艺表演、亲子游戏等丰富活动。欢迎各位居民踊跃参与，共度欢乐时光...</p>
+                            
+                            <div class="flex items-center gap-4 text-sm">
+                                <button class="comment-toggle flex items-center gap-1 text-gray-500 hover:text-purple-500 transition-colors" data-target="comments-4">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>5 条评论</span>
+                                </button>
+                                <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-purple-500 transition-colors" data-likes="45" data-liked="false" data-theme="purple">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                                    <span class="like-count">45</span>
+                                    <span>点赞</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section mt-4 hidden" id="comments-4">
+                                <div class="border-t border-gray-200 pt-4 space-y-4">
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-green-600 text-xs font-bold">袁</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">袁阿姨</span>
+                                                <span class="text-xs text-gray-400">1天前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">去年参加了很热闹！今年我准备拿手菜红烧肉参加美食分享环节</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-blue-600 text-xs font-bold">邓</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">邓先生</span>
+                                                <span class="text-xs text-gray-400">1天前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">我家小朋友想报名才艺表演，弹钢琴可以吗？怎么报名呀？</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-orange-600 text-xs font-bold">沈</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">沈大爷</span>
+                                                <span class="text-xs text-gray-400">20小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">社区就应该多办这样的活动，增进邻里感情，支持！</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-pink-600 text-xs font-bold">苏</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">苏小姐</span>
+                                                <span class="text-xs text-gray-400">15小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">请问亲子游戏有哪些项目？想带3岁的宝宝参加</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-teal-600 text-xs font-bold">韩</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">韩先生</span>
+                                                <span class="text-xs text-gray-400">8小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">去年没赶上，今年一定参加！期待和邻居们好好聚一聚</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-input flex gap-3 pt-2">
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="user" class="w-4 h-4 text-gray-500"></i>
+                                        </div>
+                                        <div class="flex-1 flex gap-2">
+                                            <input type="text" placeholder="写下你的评论..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-purple-400">
+                                            <button class="px-4 py-2 bg-purple-500 text-white text-sm rounded-lg hover:bg-purple-600 transition-colors">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息贴5：社区安全提示 -->
+                <div class="news-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">安全提醒</span>
+                                <span class="text-sm text-gray-400">3天前</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">近期小区防盗安全提示</h3>
+                            <p class="text-gray-600 mb-4">近期周边小区发生多起入室盗窃案件，请各位居民提高安全意识：外出时记得锁好门窗，发现可疑人员及时联系物业或报警，共同维护社区安全...</p>
+                            
+                            <div class="flex items-center gap-4 text-sm">
+                                <button class="comment-toggle flex items-center gap-1 text-gray-500 hover:text-red-500 transition-colors" data-target="comments-5">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>4 条评论</span>
+                                </button>
+                                <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-red-500 transition-colors" data-likes="38" data-liked="false" data-theme="red">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                                    <span class="like-count">38</span>
+                                    <span>点赞</span>
+                                </button>
+                            </div>
+                            
+                            <div class="comments-section mt-4 hidden" id="comments-5">
+                                <div class="border-t border-gray-200 pt-4 space-y-4">
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-blue-600 text-xs font-bold">彭</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">彭先生</span>
+                                                <span class="text-xs text-gray-400">2天前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">感谢提醒！我家已经安装了智能门锁，建议大家也考虑安装</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-green-600 text-xs font-bold">蔡</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">蔡阿姨</span>
+                                                <span class="text-xs text-gray-400">2天前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">昨天看到有陌生人在楼栋徘徊，已经报告物业了，大家多留意</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-orange-600 text-xs font-bold">余</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">余大爷</span>
+                                                <span class="text-xs text-gray-400">1天前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">建议物业加强夜间巡逻，我们业主也可以组织邻里守望队</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-item flex gap-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-purple-600 text-xs font-bold">丁</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-gray-800">丁女士</span>
+                                                <span class="text-xs text-gray-400">12小时前</span>
+                                            </div>
+                                            <p class="text-sm text-gray-600">出门一定记得反锁门！我家之前就因为没反锁被撬过，幸好没丢东西</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-input flex gap-3 pt-2">
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="user" class="w-4 h-4 text-gray-500"></i>
+                                        </div>
+                                        <div class="flex-1 flex gap-2">
+                                            <input type="text" placeholder="写下你的评论..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-red-400">
+                                            <button class="px-4 py-2 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600 transition-colors">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="index.html" class="inline-block px-8 py-3 border-2 border-green-500 text-green-500 rounded-xl font-semibold hover:bg-green-500 hover:text-white transition-all">
+                    返回首页
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-6 bg-gray-800 text-gray-400">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-green-500 rounded-lg flex items-center justify-center">
+                        <i data-lucide="community" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="text-white font-semibold">社区互通</span>
+                </div>
+                <p class="text-sm">© 2024 社区信息互通平台. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/js/more.js"></script>
+</body>
+</html>
