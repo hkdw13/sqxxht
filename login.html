@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 / 注册 - 社区信息互通</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="font-sans text-gray-800 bg-white min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-flex items-center gap-2 mb-4">
+                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                    <i data-lucide="community" class="w-7 h-7 text-white"></i>
+                </div>
+            </a>
+            <h1 class="text-3xl font-bold text-gray-800">社区信息互通</h1>
+            <p class="text-gray-500 mt-2">邻里互助，信息共享</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="flex border-b border-gray-100">
+                <button id="loginTab" class="flex-1 py-4 text-center font-semibold text-green-500 border-b-2 border-green-500 transition-all">
+                    登录
+                </button>
+                <button id="registerTab" class="flex-1 py-4 text-center font-medium text-gray-500 hover:text-gray-700 transition-all">
+                    注册
+                </button>
+            </div>
+
+            <div class="p-6 md:p-8">
+                <form id="loginForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">账号</label>
+                        <div class="relative">
+                            <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="text" id="loginUsername" placeholder="请输入用户名" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">密码</label>
+                        <div class="relative">
+                            <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="password" id="loginPassword" placeholder="请输入密码" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div id="loginError" class="hidden text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
+
+                    <button type="submit" class="w-full py-3.5 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition-all hover:shadow-lg">
+                        登录
+                    </button>
+
+                    <p class="text-center text-sm text-gray-500">
+                        还没有账号？
+                        <button type="button" id="switchToRegister" class="text-green-500 font-medium hover:text-green-600">立即注册</button>
+                    </p>
+                </form>
+
+                <form id="registerForm" class="space-y-5 hidden">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">设置用户名</label>
+                        <div class="relative">
+                            <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="text" id="registerUsername" placeholder="请输入用户名（至少2个字符）" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">设置密码</label>
+                        <div class="relative">
+                            <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="password" id="registerPassword" placeholder="请输入密码（至少6位）" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">确认密码</label>
+                        <div class="relative">
+                            <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="password" id="registerConfirmPassword" placeholder="请再次输入密码" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div id="registerError" class="hidden text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
+
+                    <button type="submit" class="w-full py-3.5 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition-all hover:shadow-lg">
+                        注册
+                    </button>
+
+                    <p class="text-center text-sm text-gray-500">
+                        已有账号？
+                        <button type="button" id="switchToLogin" class="text-green-500 font-medium hover:text-green-600">立即登录</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-gray-500 hover:text-green-500 text-sm transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>返回首页</span>
+            </a>
+        </div>
+
+        <div class="mt-6 p-4 bg-white/70 backdrop-blur rounded-xl text-center">
+            <p class="text-xs text-gray-500 mb-2">管理员默认账号</p>
+            <p class="text-sm font-mono text-gray-700">账号：admin ｜ 密码：20260706</p>
+        </div>
+    </div>
+
+    <script src="src/js/api-service.js"></script>
+    <script src="src/js/store.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            PostStore.initAdmin();
+
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginError = document.getElementById('loginError');
+            const registerError = document.getElementById('registerError');
+
+            function showLogin() {
+                loginTab.classList.add('text-green-500', 'border-b-2', 'border-green-500', 'font-semibold');
+                loginTab.classList.remove('text-gray-500', 'font-medium');
+                registerTab.classList.remove('text-green-500', 'border-b-2', 'border-green-500', 'font-semibold');
+                registerTab.classList.add('text-gray-500', 'font-medium');
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+                loginError.classList.add('hidden');
+                registerError.classList.add('hidden');
+            }
+
+            function showRegister() {
+                registerTab.classList.add('text-green-500', 'border-b-2', 'border-green-500', 'font-semibold');
+                registerTab.classList.remove('text-gray-500', 'font-medium');
+                loginTab.classList.remove('text-green-500', 'border-b-2', 'border-green-500', 'font-semibold');
+                loginTab.classList.add('text-gray-500', 'font-medium');
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+                loginError.classList.add('hidden');
+                registerError.classList.add('hidden');
+            }
+
+            loginTab.addEventListener('click', showLogin);
+            registerTab.addEventListener('click', showRegister);
+            document.getElementById('switchToRegister').addEventListener('click', showRegister);
+            document.getElementById('switchToLogin').addEventListener('click', showLogin);
+
+            function showError(element, message) {
+                element.textContent = message;
+                element.classList.remove('hidden');
+            }
+
+            function showNotification(message, isError = false) {
+                const notification = document.createElement('div');
+                notification.className = `fixed top-8 left-1/2 -translate-x-1/2 px-6 py-3 rounded-xl shadow-lg z-[100] transition-all duration-300 ${
+                    isError ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
+                }`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translate(-50%, -20px)';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const username = document.getElementById('loginUsername').value.trim();
+                const password = document.getElementById('loginPassword').value;
+
+                const result = await PostStore.login(username, password);
+                if (result.success) {
+                    showNotification('登录成功！正在跳转...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    showError(loginError, result.message);
+                }
+            });
+
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const username = document.getElementById('registerUsername').value.trim();
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    showError(registerError, '两次输入的密码不一致');
+                    return;
+                }
+
+                const result = await PostStore.registerUser(username, password);
+                if (result.success) {
+                    showNotification('注册成功！正在跳转...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    showError(registerError, result.message);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

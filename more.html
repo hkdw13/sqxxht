@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更多社区动态 - 社区信息互通</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide@0.292.0/dist/umd/lucide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="font-sans text-gray-800 bg-white">
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">返回首页</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-gray-600 hover:text-green-500 transition-colors">首页</a>
+                <a href="more.html" class="text-green-500 font-medium">更多动态</a>
+                <a href="my-posts.html" class="text-gray-600 hover:text-green-500 transition-colors flex items-center gap-1">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    <span>我的帖子</span>
+                </a>
+                <a href="liked.html" class="text-gray-600 hover:text-blue-500 transition-colors flex items-center gap-1">
+                    <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+                    <span>点赞</span>
+                </a>
+                <a href="favorites.html" class="text-gray-600 hover:text-yellow-500 transition-colors flex items-center gap-1">
+                    <i data-lucide="star" class="w-4 h-4"></i>
+                    <span>收藏</span>
+                </a>
+                <div class="w-px h-6 bg-gray-200"></div>
+                <div id="navUserArea">
+                </div>
+            </div>
+            <button id="hamburgerBtn" class="hamburger-btn md:hidden">
+                <i data-lucide="menu" class="w-6 h-6 text-gray-600"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 移动端菜单遮罩 -->
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+    <!-- 移动端侧边栏菜单 -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="community" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-lg font-bold text-gray-800">社区互通</span>
+            </div>
+            <button id="mobileMenuClose" class="mobile-menu-close-btn">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div id="mobileUserSection" class="mobile-menu-user">
+        </div>
+        <div id="mobileNavLinks" class="mobile-menu-nav">
+        </div>
+    </div>
+
+    <!-- 发帖弹窗 -->
+    <div class="popup-overlay" id="createPostPopup">
+        <div class="popup-content" style="max-width: 640px; padding: 32px; text-align: left;">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-gray-800">发布新帖子</h3>
+                <button id="closeCreatePostBtn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-5 h-5 text-gray-500"></i>
+                </button>
+            </div>
+            
+            <form id="createPostForm" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">帖子分类</label>
+                    <select id="postCategory" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors">
+                        <option value="activity">活动通知</option>
+                        <option value="notice">社区公告</option>
+                        <option value="trade">二手交易</option>
+                        <option value="help">求助问答</option>
+                        <option value="volunteer">志愿招募</option>
+                        <option value="facility">设施更新</option>
+                        <option value="event">活动预告</option>
+                        <option value="community">社区活动</option>
+                        <option value="safety">安全提醒</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">帖子标题</label>
+                    <input type="text" id="postTitle" placeholder="请输入帖子标题..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">帖子内容</label>
+                    <textarea id="postContent" rows="4" placeholder="请输入帖子内容..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-400 transition-colors resize-none" required></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">添加图片（可选）</label>
+                    <div id="imageUploadArea" class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-green-400 hover:bg-green-50 transition-all">
+                        <div id="uploadPlaceholder">
+                            <i data-lucide="image-plus" class="w-10 h-10 text-gray-400 mx-auto mb-2"></i>
+                            <p class="text-gray-500 text-sm">点击上传图片</p>
+                            <p class="text-gray-400 text-xs mt-1">支持 JPG、PNG 格式</p>
+                        </div>
+                        <div id="imagePreviewContainer" class="hidden relative">
+                            <img id="imagePreview" src="" alt="预览" class="w-full max-h-48 object-contain rounded-lg">
+                            <button type="button" id="removeImageBtn" class="absolute top-2 right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors shadow-lg">
+                                <i data-lucide="x" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                        <input type="file" id="postImage" accept="image/jpeg,image/png,image/jpg" class="hidden">
+                    </div>
+                </div>
+                
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" id="cancelCreatePostBtn" class="px-6 py-3 border border-gray-200 text-gray-600 rounded-xl font-medium hover:bg-gray-50 transition-colors">
+                        取消
+                    </button>
+                    <button type="submit" class="px-6 py-3 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600 transition-colors">
+                        发布帖子
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 页面主体 -->
+    <section class="py-24 px-6 bg-gray-50 min-h-screen pt-32">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <div class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
+                    社区动态
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    更多社区动态
+                </h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    浏览更多社区动态，参与评论和点赞，共建温暖社区
+                </p>
+            </div>
+
+            <!-- 帖子列表 -->
+            <div class="space-y-6" id="morePostsList">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-6 bg-gray-800 text-gray-400">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-green-500 rounded-lg flex items-center justify-center">
+                        <i data-lucide="community" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="text-white font-semibold">社区互通</span>
+                </div>
+                <p class="text-sm">© 2024 社区信息互通平台. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/js/api-service.js"></script>
+    <script src="src/js/store.js"></script>
+    <script src="src/js/ui-helper.js"></script>
+    <script src="src/js/more.js"></script>
+</body>
+</html>
